@@ -3,3 +3,92 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+
+ /* i haven't used styled components before so, I can't relate with it. I also couldn't access the npm start cos the node package folder wasn't among the PR made. I hope this works, i coded this blindsided. hope it is better. I only commented you code out in case you want to restore them back  */
+
+.links {
+  background-color: var(--white);
+  background-image: none;
+  margin: 15px 0 10px;
+  width: 90%;
+  padding: 10px 0px;
+  border-radius: 5px;
+  text-align: left;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.487);
+  z-index: 3;
+  position: relative;
+}
+
+.links p {
+  margin: 0;
+}
+
+.links .text {
+  border-bottom: 1px solid var(--Gray);
+  padding: 5px 10px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--Very-Dark-Blue)
+}
+
+.links .link {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.links .link button {
+  width: 100%;
+  border-radius: 5px;
+  margin: 8px 0 0;
+}
+
+.links .link button.copied {
+  background-color: var(--Very-Dark-Blue);
+  opacity: 10;
+}
+
+.links .link p {
+  color: var(--Cyan);
+  font-size: 19px;
+}
+
+
+@media screen and (min-width:600px) {
+  .links{
+    display: flex;
+    /* border:2px solid black; */
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    padding:15px 10px;
+  }
+
+   .links .text{
+    border-bottom: none;
+    margin-bottom:10px;
+  }
+   .links .link{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:0;
+  }
+
+   .links .link button{
+    width:auto;
+    margin:0;
+  }
+
+   .links .link p{
+    margin:0 30px 0 0;
+  }
+
+}

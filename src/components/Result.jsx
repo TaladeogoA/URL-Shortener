@@ -48,92 +48,120 @@ const Result = ({ inputLink }) => {
   }, [copied]);
 
   return (
-    <ResultWrapper>
-      {shortenedLinks
-        ? shortenedLinks.map((item, index) => {
-            return (
-              <Container key={index}>
-                <div className="original-link">
-                  <p>{item.originalLink}...</p>
-                </div>
+    // <ResultWrapper>
+    //   {shortenedLinks
+    //     ? shortenedLinks.map((item, index) => {
+    //         return (
+    //           <Container key={index}>
+    //             <div className="original-link">
+    //               <p>{item.originalLink}...</p>
+    //             </div>
 
-                <div className="shortened-link">
-                  <p>{item.shortenedLink}</p>
-                  <CopyToClipboard
-                    text={item.shortenedLink}
-                    onCopy={() => setCopied(true)}
-                  >
-                    <Button className={copied ? "copied" : ""}>
-                      {copied ? "Copied!" : "Copy"}
-                    </Button>
-                  </CopyToClipboard>
-                </div>
-              </Container>
-            );
-          })
-        : null}
-    </ResultWrapper>
+    //             <div className="shortened-link">
+    //               <p>{item.shortenedLink}</p>
+    //               <CopyToClipboard
+    //                 text={item.shortenedLink}
+    //                 onCopy={() => setCopied(true)}
+    //               >
+    //                 <Button className={copied ? "copied" : ""}>
+    //                   {copied ? "Copied!" : "Copy"}
+    //                 </Button>
+    //               </CopyToClipboard>
+    //             </div>
+    //           </Container>
+    //         );
+    //       })
+    //     : null}
+    // </ResultWrapper>
+
+    // YOU CAN DELETE THE ARTICLE SECTION BELOW IF IT DOESN'T WORK THE WAY YOU EXPECT AND UN-COMMENT THE RESULT_WRAPPER SECTION ABOVE
+
+    <article>
+    {shortenedLinks
+          ? shortenedLinks.map((item, index) => {
+              return (
+                <section key={index}>
+                  // original link paragraph
+                    <p>{item.originalLink}...</p>
+                  <aside>
+                    // shortened link paragraph
+                    <p>{item.shortenedLink}</p>
+                    <CopyToClipboard
+                      text={item.shortenedLink}
+                      onCopy={() => setCopied(true)}
+                    >
+                      <button className={copied ? "copied" : ""}>
+                        {copied ? "Copied!" : "Copy"}
+                      </button>
+                    </CopyToClipboard>
+                  </aside>
+                 
+                </section>
+              );
+            })
+          : null}
+          </article>
   );
 };
 
 export default Result;
 
-const ResultWrapper = styled.section`
-  background: var(--light-gray);
-  padding: 1rem 0;
-`;
+// const ResultWrapper = styled.section`
+//   background: var(--light-gray);
+//   padding: 1rem 0;
+// `;
 
-const Container = styled.div`
-  background: var(--white);
-  border-radius: 10px;
-  margin: 1.5rem 2rem;
-  border: solid 1px var(--light-gray);
-  padding: 1rem 0;
+// const Container = styled.div`
+//   background: var(--white);
+//   border-radius: 10px;
+//   margin: 1.5rem 2rem;
+//   border: solid 1px var(--light-gray);
+//   padding: 1rem 0;
 
-  p {
-    padding: 0 1rem;
-    font-weight: 500;
-  }
+//   p {
+//     padding: 0 1rem;
+//     font-weight: 500;
+//   }
 
-  .original-link {
-    border-bottom: solid 1px var(--light-gray);
+//   .original-link {
+//     border-bottom: solid 1px var(--light-gray);
 
-    p {
-      padding-bottom: 0.5rem;
-    }
-  }
+//     p {
+//       padding-bottom: 0.5rem;
+//     }
+//   }
 
-  .shortened-link {
-    border-top: solid 1px var(--light-gray);
+//   .shortened-link {
+//     border-top: solid 1px var(--light-gray);
 
-    p {
-      padding: 0.5rem 1rem;
-      color: var(--cyan);
-    }
-  }
+//     p {
+//       padding: 0.5rem 1rem;
+//       color: var(--cyan);
+//     }
+//   }
 
-  @media (min-width: 768px) {
-    max-width: 70%;
-    margin: 1.5rem auto;
-  }
-`;
+//   @media (min-width: 768px) {
+//     max-width: 70%;
+//     margin: 1.5rem auto;
+//   }
+// `;
 
-const Button = styled.button`
-  background-color: var(--cyan);
-  color: var(--white);
-  border: none;
-  border-radius: 5px;
-  width: calc(100% - 2rem);
-  margin-inline: 1rem;
-  padding: 0.5rem 2rem;
-  font-weight: 700;
-  font-size: 1rem;
+// const Button = styled.button`
+//   background-color: var(--cyan);
+//   color: var(--white);
+//   border: none;
+//   border-radius: 5px;
+//   width: calc(100% - 2rem);
+//   margin-inline: 1rem;
+//   padding: 0.5rem 2rem;
+//   font-weight: 700;
+//   font-size: 1rem;
 
-  &.copied {
-    background-color: var(--dark-violet);
-  }
+//   &.copied {
+//     background-color: var(--dark-violet);
+//   }
 
-  &:hover {
-    cursor: pointer;
-  }
-`;
+//   &:hover {
+//     cursor: pointer;
+//   }
+// `;
